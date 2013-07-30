@@ -8,137 +8,19 @@
     <title>Kerbal Space Program Unoffical App</title>
     <link rel="stylesheet" href="css/kspalternatecontroller.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
   </head>
   <body>
-    <div id="appContainer" class="sceneBackground">
+    
+    <!--- Login Page --->
+    <section id="LOADING"> 
       
-      
-      <div class="scene" id="DEFAULT">
-         <noscript>Sorry, your browser does not have javascript enabled. Please enable javascript.</noscript>
-         <div class="VCenterContainer"><h1 class="fadeBlink SilkScreenFont VCenter">Loading Please Wait...</h1></div>
-      </div>
-      
-      
-      <div class="scene" id="LOGIN">
-         <div class="VCenterContainer">
-           <div class="VCenter">
-             <div class="Window" style="">
-                <h1 class="SilkScreenFont">Login To Kerbal Space Program</h1>
-                <div class="SilkScreenFont">
-                   <fieldset class="SilkScreenFont">
-                    <ol>
-                     <li><label for="Login_KSPPassword">Password</label><input type="password" id="Login_KSPPassword"></li>
-                     <li><input type="button" id="Login_KSPLogin" value="Connect" class="NinetyAndCenter"> </li>
-                    </ol>  
-                   </fieldset>               
-                </div>
-              </div>
-            </div>
-         </div>
-      </div>
-      
-      
-      <div class="scene" id="MAINMENU">
-         <div class="VCenterContainer">
-           <div class="VCenter">
-             <div id="MainMenu_Buttons" class="gradientBG1">
-               <ul>
-                 <li><input type="button" id="MainMenu_Start" value="Waiting for game start..."></li>
-                 <li><input type="button" id="MainMenu_ApplicationSettings" value="Application Settings"></li>  
-                 <li><input type="button" disabled value="Plugins"></li>
-                 <li><input type="button" id="MainMenu_Disconnect" value="Disconnect"></li>
-               </ul>
-             </div>
-             <div id="MainMenu_Settings">
-               <div class="Window" style="">
-                   
-                  <h1 class="SilkScreenFont">Application Settings</h1>
-                  <div class="SilkScreenFont">
-                   <fieldset>
-                     <ol>
-                        <li><label for="MainMenu_RememberPassword">Remember Password</label><input id="MainMenu_RememberPassword" type="checkbox"></li> 
-                        <li><input id="MainMenu_SaveSettings" type="button" value="Update Settings"></li> 
-                        <li><input id="MainMenu_CancelSettings" type="button" value="Dont Save Settings"></li>
-                     </ol>
-                   </fieldset>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-      </div>
-      
-      <div class="scene" id="EDITOR">
-          <div id="Editor_Heading"><!-- Do not remove html comments. They keep the tags inline :) -->
-            <div class="Editor_Group_Flag"><span>Flag</span><!--
-         --><div id="Editor_Flag"><img id="Editor_Flag_Image"></div></div><!--
-         --><div class="Editor_Group_Name"><span>Ship Name</span><!--
-         --><div id="Editor_ShipName">Unknown</div></div><!--
-         --><div class="Editor_Group_Stage"><span>Stage</span><!--
-         --><div><select id="Editor_Stage"><option>Entire Ship</option></select></div></div><!--
-         --><div class="Editor_Group_Launch"><div id="Editor_Launch">> Launch</div></div>
-          </div>
-          <!-- Arseholes who started off that whole "TABLES ARE FOR TABULAR DATA OMG!" rubbish. Here you go. Heres basically a css table! but wait its all with div elements! yay -->
-          
-          <div id="Editor_RowOne">
-            <div class="floatLeft">
-              <h1>Parts</h1><!--
-         --><h2 id="Editor_PartCount">0</h2>  
-            </div>
-            <div class="floatRight">
-              <h1>Delta V</h1><!--
-         --><h2 id="Editor_DeltaV">0</h2>  
-            </div>
-          </div>
-          
-          <div id="Editor_RowTwo">
-            <div class="floatLeft">
-              <h1>Mass</h1><!--
-         --><h2 id="Editor_Mass">0</h2>
-            </div>
-            <div class="floatRight">
-              <h1>Stages</h1><!--
-         --><h2 id="Editor_Stages">0</h2>  
-            </div>
-          </div>
-          
-          <div id="Editor_RowThree">
-            <div class="floatLeft">
-              <h3>Balance</h3><!--
-         --><div></div>
-            </div>
-            <div class="floatRight">
-              <h3>Crew Capacity</h3><!--
-         --><div></div>
-            </div>
-          </div>
-      </div>
-      
-      <div class="scene" id="FLAGBROWSER">
-             <div class="Window" style="width:95%;">
-                <h1 class="SilkScreenFont">Browse Flags via Reddit /r/KSPFlags</h1>
-                                  
-                <div style="height: 90%;">
-                  <div id="FlagBrowser_TableCont">
-                    <table id="FlagBrowser_Table">
-                      <thead>
-                       <tr><th>Flag</th><th>Creator</th><th>Edit</th><th>Import</th></tr>  
-                      </thead>
-                      <tbody id="FlagBrowser_TableBody">
-                      </tbody>
-                    </table>
-                  </div>
-                  <input type="button" id="FlagBrowser_More" value="View More">
-                </div>
-         </div>
-      </div>
-      
-      <div class="scene" id="FLIGHT">
-         
-        
-      </div>
-    </div>    
+    </section>
+    
+    
     <script type="application/dart" src="scripts/kspalternatecontroller.dart"></script>
     <script src="packages/browser/dart.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/jQuery.js"></script>
   </body>
 </html>
