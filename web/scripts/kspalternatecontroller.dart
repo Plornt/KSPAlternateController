@@ -7,6 +7,7 @@ import 'dart:utf';
 import 'dart:json';
 import 'package:uuid/uuid.dart';
 import 'package:pathos/path.dart' as path;
+import 'package:js/js.dart' as js;
 
 part 'servertoclient_packets.dart';
 part 'clienttoserver_packets.dart';
@@ -17,7 +18,7 @@ String serverIP = "";
 String serverPort = "81";
 String serverPath = "";
 
-Map<String, DivElement> scenes = new Map<String, DivElement>();
+Map<String, Element> scenes = new Map<String, Element>();
 void main() {
   serverIP = window.location.hostname;
   
@@ -29,15 +30,16 @@ void main() {
   /*
    * Load Generic Functions
    */
-  DivElement loadingScene = query("#DEFAULT");
+  print( query("#DEFAULT").runtimeType);
+  Element loadingScene = query("#DEFAULT");
   previousScene = loadingScene;
-  DivElement loginScene = query("#LOGIN");
+  Element loginScene = query("#LOGIN");
   scenes.putIfAbsent("LOADING", () { return loadingScene; });  
   scenes.putIfAbsent("LOGIN", () { return loginScene; });  
-  scenes.putIfAbsent("MAINMENU", () { return query("#MAINMENU"); });  
+  /*scenes.putIfAbsent("MAINMENU", () { return query("#MAINMENU"); });  
   scenes.putIfAbsent("FLIGHT", () { return query("#FLIGHT"); });  
   scenes.putIfAbsent("EDITOR", () { return query("#EDITOR"); }); 
-  scenes.putIfAbsent("FLAGBROWSER", () { return query("#FLAGBROWSER"); }); 
+  scenes.putIfAbsent("FLAGBROWSER", () { return query("#FLAGBROWSER"); }); */
   GlobalProgramHandler gph = new GlobalProgramHandler(serverIP, serverPort, serverPath, messageHandler);
   RegisterEvents(gph);
 
@@ -45,12 +47,12 @@ void main() {
    *  Login Screen Logic
    */
 
-  ButtonInputElement loginButton = query("#Login_KSPLogin");
+  ButtonElement loginButton = query("#Login_KSPLogin");
   TextInputElement loginTextBox = query("#Login_KSPPassword");
   loginTextBox.value = settings["settings_password"];
   loginButton.onClick.listen((t) { 
-    
-    loginButton.disabled = true;
+    js.context.$("#Login_KSPLogin").button('loading');
+   // loginButton.disabled = true;
     gph.connect(() {
       gph.sendAwaitResponse(new SendPasswordPacket("tempPass")).then((ResponsePacket response) { 
         if (response.packetID == ServerPacketIDs.CONNECTION_ACCEPTED) {
@@ -70,9 +72,43 @@ void main() {
     });    
   });
   
- /*
-  * Main Menu Logic
-  */
+
+  ChangeScene("LOGIN");
+
+}
+
+
+bool likelyAnImage (String url) {
+  return getValidExtension (url) != "";
+}
+String getValidExtension (String url) {
+  List<String> extensions = ["jpg","png","gif"];
+  Uri path = Uri.parse(url);
+  for (int i = 0; i < extensions.length; i ++) { 
+     if (path.path.endsWith(extensions[i])) {
+       return extensions[i];
+     }
+  }
+  return "";
+}
+String imgurAddExtension (String url) {
+  Uri path = Uri.parse(url);
+  if (path.host == "imgur.com" || path.host == "www.imgur.com") {
+    if (getValidExtension (url) == "") {
+       return "$url.png";
+    }
+  }
+  return url;
+}
+
+/* CONTINUE LOADING SCREENS */
+String afterID;
+void OnceLoggedIn (GlobalProgramHandler gph) {
+  ButtonElement loginButton = query("#Login_KSPLogin");
+  TextInputElement loginTextBox = query("#Login_KSPPassword");
+  /*
+   * Main Menu Logic
+   */
   query("#MainMenu_Disconnect").onClick.listen((t) {
       disconnect(loginButton, gph);
   });
@@ -112,37 +148,6 @@ void main() {
   });
   
 
-  ChangeScene("LOGIN");
-
-}
-
-
-bool likelyAnImage (String url) {
-  return getValidExtension (url) != "";
-}
-String getValidExtension (String url) {
-  List<String> extensions = ["jpg","png","gif"];
-  Uri path = Uri.parse(url);
-  for (int i = 0; i < extensions.length; i ++) { 
-     if (path.path.endsWith(extensions[i])) {
-       return extensions[i];
-     }
-  }
-  return "";
-}
-String imgurAddExtension (String url) {
-  Uri path = Uri.parse(url);
-  if (path.host == "imgur.com" || path.host == "www.imgur.com") {
-    if (getValidExtension (url) == "") {
-       return "$url.png";
-    }
-  }
-  return url;
-}
-
-/* CONTINUE LOADING SCREENS */
-String afterID;
-void OnceLoggedIn (GlobalProgramHandler gph) {
   /*
    * Editor Scene
    */
@@ -276,7 +281,7 @@ void saveSettings() {
   });
 }
 
-void disconnect (InputElement loginButton, GlobalProgramHandler gph) {
+void disconnect (ButtonElement loginButton, GlobalProgramHandler gph) {
   gph.close();
   ChangeScene("LOGIN");
   loginButton.disabled = false;
@@ -301,7 +306,7 @@ void SetupSceneHandler (GlobalProgramHandler gph) {
   }, fromCache: true);
 }
 
-DivElement previousScene;
+Element previousScene;
 void ChangeScene (String scene) {
   // FUCK IT DEAL WITH ANIMATIONS LATER
   // TODO: DEAL WITH THIS.

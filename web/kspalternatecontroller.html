@@ -12,15 +12,42 @@
   </head>
   <body>
     
-    <!--- Login Page --->
-    <section id="LOADING"> 
-      
+    <!--- Loading Page --->
+    <section id="DEFAULT"> 
+    
     </section>
     
     
+    <!--- Login Page --->
+    <section id="LOGIN"> 
+      <div class="row">
+        <div class="col-lg-6 col-offset-3">
+          <form class="form-horizontal">
+              <fieldset>
+              <legend>Connect to Kerbal Space Program</legend>
+              <div class="form-group">
+                <label for="Login_KSPPassword" class="col-lg-2 control-label">Password</label>
+                <div class="col-lg-10">
+                <input type="password" class="form-control" id="Login_KSPPassword" placeholder="Password">
+                </div>
+              </div>
+              <button type="submit" id="Login_KSPLogin" data-loading-text="Loading..." class="btn btn-primary btn-large btn-block">Connect</button>
+            </fieldset>
+          </form>
+         </div>
+      </div>
+    </section>
+    
+     <!--- Loading Page --->
+    <section id="LOADING"> 
+    
+    </section>
+    
+    
+    <script src="scripts/jQuery.js"></script>
     <script type="application/dart" src="scripts/kspalternatecontroller.dart"></script>
+    <script src="packages/browser/interop.js"></script>
     <script src="packages/browser/dart.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/jQuery.js"></script>
   </body>
 </html>
