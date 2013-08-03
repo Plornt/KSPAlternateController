@@ -6,12 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Kerbal Space Program Unoffical App</title>
-    <link rel="stylesheet" href="css/kspalternatecontroller.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/kspalternatecontroller.css">
   </head>
   <body>
-    
+    <div class="navbar navbar-inverse">
+     <div class="container">       
+       
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="nav-collapse collapse navbar-responsive-collapse">
+         <ul class="nav navbar-nav">
+          <li class="active"><a id="NAV_LOGIN">Login</a></li>
+          <li><a id="NAV_SCENE">Scene Data</a></li>
+          <li><a id="NAV_GRAPHS">Graphs</a></li>
+          <li><a id="NAV_VESSELS">Vessels</a></li>
+          <li><a id="NAV_FLAG_BROWSER">Flag Browser</a></li>
+          <li class="disabled"><a id="NAV_PLUGIN_BROWSER">Plugin Browser</a></li>
+          <li><a id="NAV_SETTINGS">Settings</a></li>
+          
+         </ul>
+       </div>
+       </div>
+    </div>
     <!--- Loading Page --->
     <section id="DEFAULT"> 
     
@@ -23,17 +44,18 @@
       <div class="row">
         <div class="col-lg-6 col-offset-3">
           <form class="form-horizontal">
-              <fieldset>
+            <fieldset>
               <legend>Connect to Kerbal Space Program</legend>
               <div class="form-group">
                 <label for="Login_KSPPassword" class="col-lg-2 control-label">Password</label>
                 <div class="col-lg-10">
-                <input type="password" class="form-control" id="Login_KSPPassword" placeholder="Password">
+                  <input type="password" class="form-control" id="Login_KSPPassword" placeholder="Password">
                 </div>
               </div>
               <button type="submit" id="Login_KSPLogin" data-loading-text="Loading..." class="btn btn-primary btn-large btn-block">Connect</button>
             </fieldset>
           </form>
+
          </div>
       </div>
     </section>
@@ -45,7 +67,7 @@
     
     
     <script src="scripts/jQuery.js"></script>
-    <script type="application/dart" src="scripts/kspalternatecontroller.dart"></script>
+    <script type="application/dart" src="FUCK OFFscripts/kspalternatecontroller.dart"></script>
     <script src="packages/browser/interop.js"></script>
     <script src="packages/browser/dart.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
