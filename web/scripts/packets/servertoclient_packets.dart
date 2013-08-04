@@ -111,13 +111,13 @@ class UnknownPacket extends Packet {
 }
 class ConnectionAccepted extends ResponsePacket {
   int packetID = ServerPacketIDs.CONNECTION_ACCEPTED;
-  UnknownPacket (String responseID):super(responseID) { 
+  ConnectionAccepted (String responseID):super(responseID) { 
     
   }
 }
 class IncorrectPassword extends ResponsePacket {
   int packetID = ServerPacketIDs.INCORRECT_PASSWORD;
-  UnknownPacket (String responseID):super(responseID) { 
+  IncorrectPassword (String responseID):super(responseID) { 
     
   }
 }
@@ -125,7 +125,7 @@ class IncorrectPassword extends ResponsePacket {
 class RequestAllVesselDataServer extends ResponsePacket {
   int packetID = ServerPacketIDs.REQUEST_ALL_VESSEL_DATA;
   List<dynamic> vesselObjects;
-  RequestAllVesselDataPacket (String responseID, List<dynamic> vesselObjects):super(responseID) { 
+  RequestAllVesselDataServer (String responseID, List<dynamic> vesselObjects):super(responseID) { 
     this.vesselObjects = vesselObjects;
   }
 }

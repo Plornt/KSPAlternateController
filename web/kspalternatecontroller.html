@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Kerbal Space Program Unoffical App</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/kspalternatecontroller.css">
     <link rel="stylesheet" href="css/animate.css">
   </head>
   <body>
+      <div class="navbar navbar-fixed-top navbar-inverse">
+          <div class="container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                
+                <a class="navbar-brand" href="#"><img alt="Flag" src="images/default.png" id="Editor_Flag_Image"></a>
+                
+                <div class="nav-collapse navbar-inverse-collapse collapse">
+                  <ul class="nav navbar-nav">
+                    <li id="nav-LOGIN" class="active"><a href="#">Login</a></li>
+                    <li id="nav-MAINMENU"><a href="#">Main Menu</a></li>
+                    <li id="nav-EDITOR"><a href="#">Editor</a></li>
+                    <li id="nav-FLAGBROWSER"><a href="#">Flag Browser</a></li>
+                    <li id="nav-FLIGHT"><a href="#">In-Flight</a></li>
+                    <li id="nav-SETTINGS"><a href="#">Settings</a></li>
+                  </ul>
+                </div>
+          </div>
+    </div>
     <div id="appContainer" class="sceneBackground">
-      
       
       <div class="scene" id="DEFAULT">
          <noscript>Sorry, your browser does not have javascript enabled. Please enable javascript.</noscript>
@@ -22,114 +43,76 @@
       <div class="scene" id="LOGIN">
          <div class="VCenterContainer">
            <div class="VCenter">
-             <div class="Window" style="">
-                <h1 class="SilkScreenFont">Login To Kerbal Space Program</h1>
-                <div class="SilkScreenFont">
-                   <fieldset class="SilkScreenFont">
-                    <ol>
-                     <li><label for="Login_KSPPassword">Password</label><input type="password" id="Login_KSPPassword"></li>
-                     <li><input type="button" id="Login_KSPLogin" value="Connect" class="NinetyAndCenter"> </li>
-                    </ol>  
-                   </fieldset>               
-                </div>
+             <div class="panel" style="">
+                <div class="panel-heading"><h3 class="panel-title">Login To Kerbal Space Program</h3></div>
+                <form class="form-horizontal">
+                  <div class="form-group"> 
+                    <label class="col-lg-2 control-label" for="Login_KSPPassword">Password</label>
+                    <div class="col-lg-10"> 
+                      <input type="password" class="form-control" placeholder="Password" id="Login_KSPPassword">
+                    </div>
+                  </div>
+                  <button type="button" id="Login_KSPLogin" class="btn btn-primary btn-large btn-block">Connect</button>
+                </form>   
               </div>
             </div>
          </div>
       </div>
       
-      
       <div class="scene" id="MAINMENU">
-         <div class="VCenterContainer">
-           <div class="VCenter">
-             <div id="MainMenu_Buttons" class="gradientBG1">
-               <ul>
-                 <li><input type="button" id="MainMenu_Start" value="Waiting for game start..."></li>
-                 <li><input type="button" id="MainMenu_ApplicationSettings" value="Application Settings"></li>  
-                 <li><input type="button" disabled value="Plugins"></li>
-                 <li><input type="button" id="MainMenu_Disconnect" value="Disconnect"></li>
-               </ul>
-             </div>
-             <div id="MainMenu_Settings">
-               <div class="Window" style="">
-                   
-                  <h1 class="SilkScreenFont">Application Settings</h1>
-                  <div class="SilkScreenFont">
-                   <fieldset>
-                     <ol>
-                        <li><label for="MainMenu_RememberPassword">Remember Password</label><input id="MainMenu_RememberPassword" type="checkbox"></li> 
-                        <li><input id="MainMenu_SaveSettings" type="button" value="Update Settings"></li> 
-                        <li><input id="MainMenu_CancelSettings" type="button" value="Dont Save Settings"></li>
-                     </ol>
-                   </fieldset>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
+             <button class="btn btn-primary btn-large btn-block">Waiting for Kerbal Space Program start</button>
+             <button class="btn btn-primary btn-large btn-block" disabled>Plugins</button>
+             <button id="MainMenu_Disconnect" class="btn btn-primary btn-large btn-block">Disconnect</button>
+      </div>
+      
+      <div class="scene" id="SETTINGS">
+        
       </div>
       
       <div class="scene" id="EDITOR">
-          <div id="Editor_Heading"><!-- Do not remove html comments. They keep the tags inline :) -->
-            <div class="Editor_Group_Flag"><span>Flag</span><!--
-         --><div id="Editor_Flag"><img id="Editor_Flag_Image"></div></div><!--
-         --><div class="Editor_Group_Name"><span>Ship Name</span><!--
-         --><div id="Editor_ShipName">Unknown</div></div><!--
-         --><div class="Editor_Group_Stage"><span>Stage</span><!--
-         --><div><select id="Editor_Stage"><option>Entire Ship</option></select></div></div><!--
-         --><div class="Editor_Group_Launch"><div id="Editor_Launch">> Launch</div></div>
-          </div>
-          <!-- Arseholes who started off that whole "TABLES ARE FOR TABULAR DATA OMG!" rubbish. Here you go. Heres basically a css table! but wait its all with div elements! yay -->
-          
-          <div id="Editor_RowOne">
-            <div class="floatLeft">
-              <h1>Parts</h1><!--
-         --><h2 id="Editor_PartCount">0</h2>  
+        <div class="rowContainer">
+          <div class="row EditorRow">
+            <div class="col-lg-5">
+              <div class="row">
+                <div class="col-lg-6 hea">Parts</div>
+                <div class="col-lg-6 dat"><span id="Editor_PartCount">0</span></div>
+              </div>
             </div>
-            <div class="floatRight">
-              <h1>Delta V</h1><!--
-         --><h2 id="Editor_DeltaV">0</h2>  
+            <div class="col-lg-2"></div>
+            <div class="col-lg-5">
+              <div class="row">
+                <div class="col-lg-6 hea">Delta V</div>
+                <div class="col-lg-6 dat"><span id="Editor_DeltaV">0</span></div>
+              </div>
             </div>
           </div>
           
-          <div id="Editor_RowTwo">
-            <div class="floatLeft">
-              <h1>Mass</h1><!--
-         --><h2 id="Editor_Mass">0</h2>
+           <div class="row EditorRow">
+            <div class="col-lg-5">
+              <div class="row">
+                <div class="col-lg-6 hea">Mass</div>
+                <div class="col-lg-6 dat fit" id="Editor_Mass">10000</div>
+              </div>
             </div>
-            <div class="floatRight">
-              <h1>Stages</h1><!--
-         --><h2 id="Editor_Stages">0</h2>  
-            </div>
-          </div>
-          
-          <div id="Editor_RowThree">
-            <div class="floatLeft">
-              <h3>Balance</h3><!--
-         --><div></div>
-            </div>
-            <div class="floatRight">
-              <h3>Crew Capacity</h3><!--
-         --><div></div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-5">
+              <div class="row">
+                <div class="col-lg-6 hea">Stages</div>
+                <div class="col-lg-6 dat fit"><span id="Editor_Stages">0</span></div>
+              </div>
             </div>
           </div>
+        </div>
       </div>
       
       <div class="scene" id="FLAGBROWSER">
-             <div class="Window" style="width:95%;">
-                <h1 class="SilkScreenFont">Browse Flags via Reddit /r/KSPFlags</h1>
+             <div class="panel" style="width:95%;">
+                <div class="panel-heading"><h3 class="panel-title">Browse Flags via Reddit /r/KSPFlags (Warning - Randomly Crashes Atm)</h3></div>
                                   
-                <div style="height: 90%;">
-                  <div id="FlagBrowser_TableCont">
-                    <table id="FlagBrowser_Table">
-                      <thead>
-                       <tr><th>Flag</th><th>Creator</th><th>Edit</th><th>Import</th></tr>  
-                      </thead>
-                      <tbody id="FlagBrowser_TableBody">
-                      </tbody>
-                    </table>
+                  <div id="FlagBrowser_Items">
+                    
                   </div>
-                  <input type="button" id="FlagBrowser_More" value="View More">
-                </div>
+                  <button id="FlagBrowser_More" class="btn btn-primary btn-large btn-block">Load more!</button>
          </div>
       </div>
       
@@ -138,6 +121,9 @@
         
       </div>
     </div>    
+    <script src="scripts/javascript/jquery.min.js"></script>
+    <script src="scripts/javascript/fitText.js"></script>
+    <script src="scripts/javascript/bootstrap.min.js"></script>
     <script type="application/dart" src="scripts/kspalternatecontroller.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>

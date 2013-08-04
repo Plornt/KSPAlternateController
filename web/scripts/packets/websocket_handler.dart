@@ -6,12 +6,13 @@ class GlobalProgramHandler {
   String sPort;
   String sPath;
   Function messageHandler;
+  SceneHandler sceneHandler = new SceneHandler();
   Map<String, CustomEvent> eventList = new Map<String, CustomEvent>();
   Map<String, Completer> awaitingResponses = new Map<String, Completer>();
   
   /// Creates a new handler ready for connection via [connect()]
   GlobalProgramHandler (String this.sIP, String this.sPort, String this.sPath, Function this.messageHandler) {
-        
+    sceneHandler.init(this);
   }
   
   void dispatchEvent (int eventNum, dynamic event, [String subID = ""]) {
@@ -62,7 +63,7 @@ class GlobalProgramHandler {
     // Not connected so we can no longer send messages to the server. 
     ws = new WebSocket ("ws://$sIP:$sPort/$sPath");
     ws.onMessage.listen((MessageEvent message) { messageHandler(this, message); });
-    ws.onClose.listen((CloseEvent e) { print("Closed because closed. ${e.reason}"); window.open(window.location.toString(), ""); });
+    ws.onClose.listen((CloseEvent e) { print("Closed because closed. ${e.reason} ${e.code}"); window.open(window.location.toString(), ""); });
     ws.onError.listen((Event e) { print("Closed due to error"); window.open(window.location.toString(), ""); });
     ws.onOpen.listen((e) { 
       onOpen();
@@ -89,6 +90,7 @@ class GlobalProgramHandler {
     return c.future;
   }
   void close () {
+    print("WE CLOSED IT?");
     _detachAllEvents();
     ws.close(); 
   }
