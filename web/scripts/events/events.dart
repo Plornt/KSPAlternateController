@@ -15,7 +15,7 @@ class EvListener {
   }
 }
 
-// Darts internal event handler is fairly rubbish. So I created a worse one. Gotta 1 up them on bad code :)
+// Darts internal event handler is fairly rubbish (by rubbish I mean it doesnt do what I want it to :( ). So I created a worse one. Gotta 1 up them on bad code :)
 abstract class CustomEvent {
   Map<String, List<EvListener>> _eventFunctions = new Map<String, List<EvListener>>();
   String subID = "";
