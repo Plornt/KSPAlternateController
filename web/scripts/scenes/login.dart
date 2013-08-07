@@ -38,11 +38,11 @@ class Login extends Scene {
               }
             }, fromCache: true);
             _isLoggedIn = true;
-            gph.sceneHandler.OnceLoggedIn();
             Settings settingsScene = gph.sceneHandler.getScene("SETTINGS");
             if (settingsScene.getSetting("settings_rememberPassword") == "true") {
               settingsScene.setSetting("settings_password",loginTextBox.value);
             }
+            gph.sceneHandler.OnceLoggedIn();
           }
           else {
             window.alert("The password you entered was incorrect");

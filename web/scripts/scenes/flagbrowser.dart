@@ -17,7 +17,7 @@ class FlagBrowser extends Scene {
   void afterLogin (GlobalProgramHandler gph) {
     [query("#Editor_Flag_Image"), button].forEach((E) { 
       E.onClick.listen((t) { 
-        ChangeScene("FLAGBROWSER");   
+        gph.sceneHandler.ChangeScene("FLAGBROWSER");   
         if (moreButton != null) moreButton.value = "View More";
         if (afterID == "") {
           loadMoreFlags(gph);
@@ -116,7 +116,7 @@ class FlagBrowser extends Scene {
   }
   void loadMoreFlags (GlobalProgramHandler gph) {
     moreButton.disabled = true;
-    gph.sendAwaitResponse(new GetCrossOriginHTML("http://www.reddit.com/r/KSPFlags/top.json?t=all&after=$afterID&limit=15")).then((ResponseToHttpRequest response) {
+    gph.sendAwaitResponse(new GetCrossOriginHTML("http://www.reddit.com/r/KSPFlags/hot.json?t=all&after=$afterID&limit=15")).then((ResponseToHttpRequest response) {
       print("Got response");
       processingList = new List<List<String>>();
       try {

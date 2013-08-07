@@ -63,8 +63,8 @@ class GlobalProgramHandler {
     // Not connected so we can no longer send messages to the server. 
     ws = new WebSocket ("ws://$sIP:$sPort/$sPath");
     ws.onMessage.listen((MessageEvent message) { messageHandler(this, message); });
-    ws.onClose.listen((CloseEvent e) { print("Closed because closed. ${e.reason} ${e.code}"); window.open(window.location.toString(), ""); });
-    ws.onError.listen((Event e) { print("Closed due to error"); window.open(window.location.toString(), ""); });
+    ws.onClose.listen((CloseEvent e) { print("Closed because closed. ${e.reason} ${e.code}"); window.location.reload(); });
+    ws.onError.listen((Event e) { print("Closed due to error"); window.location.reload(); });
     ws.onOpen.listen((e) { 
       onOpen();
     });

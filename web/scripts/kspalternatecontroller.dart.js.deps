@@ -110,8 +110,7 @@ file:///C:/Users/Thomas/Downloads/darteditor-win32-64/dart/dart-sdk/lib/utf/utf_
 file:///C:/Users/Thomas/Downloads/darteditor-win32-64/dart/dart-sdk/lib/web_audio/dart2js/web_audio_dart2js.dart
 file:///C:/Users/Thomas/Downloads/darteditor-win32-64/dart/dart-sdk/lib/web_gl/dart2js/web_gl_dart2js.dart
 file:///C:/Users/Thomas/Downloads/darteditor-win32-64/dart/dart-sdk/lib/web_sql/dart2js/web_sql_dart2js.dart
-file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/clienttoserver_packets.dart
-file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/events.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/events/events.dart
 file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/kspalternatecontroller.dart
 file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/packages/crypto/crypto.dart
 file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/packages/crypto/src/crypto_utils.dart
@@ -123,5 +122,14 @@ file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/packages/crypto/
 file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/packages/pathos/path.dart
 file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/packages/uuid/aes/aes.dart
 file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/packages/uuid/uuid.dart
-file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/servertoclient_packets.dart
-file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/websocket_handler.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/packets/clienttoserver_packets.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/packets/servertoclient_packets.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/packets/websocket_handler.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/scenes/editor.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/scenes/flagbrowser.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/scenes/inflight.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/scenes/loading.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/scenes/login.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/scenes/mainmenu.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/scenes/scene_handler.dart
+file:///C:/Users/Thomas/dart/KSPAlternateController/web/scripts/scenes/settings.dart

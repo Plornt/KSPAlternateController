@@ -36,11 +36,12 @@ class SceneHandler {
   List<Scene> scenes = new List<Scene>();
   Element previousScene;
   GlobalProgramHandler parent;
-  
+  bool loggedIn = false;
   
   void OnceLoggedIn () {
+    loggedIn = true;
     scenes.forEach((E) {
-      if (E.button != null && E.needsLogin == true && E.buttonDisableOnChange ==false) {
+      if (E.button != null && E.needsLogin == true && E.buttonDisableOnChange == false) {
         E.button.classes.remove("disabled");
       }
       E.afterLogin(parent);
@@ -91,7 +92,8 @@ class SceneHandler {
       }
       if (origin == "KSP") {
         scenes.where((S) { return (S.buttonDisableOnChange == true && S.name != scene && S.button != null) || (loggedIn == false && S.button != null && S.needsLogin); }).forEach((E) {
-            E.button.classes.add("disabled");
+          print("Set disabled ${E.name}");  
+          E.button.classes.add("disabled");
         });
       }
     }
